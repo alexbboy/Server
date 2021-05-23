@@ -74,12 +74,41 @@ namespace MulticastServer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FileInfo file = new FileInfo("C:\\Users\\Ксения Лучкова\\OneDrive\\Документы\\6 семестр\\Сети ЭВМ\\Курсовая\\test.txt");
-            long size = file.Length;
-            byte[] data = new byte[size];
-            byte[] name = new byte[255];
             string path = textBox3.Text;
-            if (path.Substring(path.Length-4)!=".txt")
+            FileInfo file;
+            try
+            {
+                file = new FileInfo(path);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Пожалуйста, введите адрес передаваемого файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Отказано в доступе к файлу", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (PathTooLongException)
+            {
+                MessageBox.Show("Указанный путь или имя файла превышают максимальную длину, заданную в системе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (System.Security.SecurityException)
+            {
+                MessageBox.Show("Данный файл не доступен по соображениям безопасности", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                if (path.Substring(path.Length - 4) != ".txt")
+                {
+                    MessageBox.Show("Программа предназначена для передачи текстовых файлов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Программа предназначена для передачи текстовых файлов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -88,11 +117,6 @@ namespace MulticastServer
             try
             {
                 fstream = new FileStream(path, FileMode.Open);
-            }
-            catch (ArgumentException)
-            {
-                MessageBox.Show("Пожалуйста, введите адрес передаваемого файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
             catch (DirectoryNotFoundException)
             {
@@ -104,11 +128,9 @@ namespace MulticastServer
                 MessageBox.Show("Указанного файла не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            catch (System.Security.SecurityException)
-            {
-                MessageBox.Show("Данный файл не доступен по соображениям безопасности", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            long size = file.Length;
+            byte[] data = new byte[size];
+            byte[] name = new byte[255];
             string filename = Path.GetFileName(path);
             fstream.Read(data, 0, data.Length);
             fstream.Close();

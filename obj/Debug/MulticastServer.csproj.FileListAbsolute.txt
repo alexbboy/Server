@@ -8,3 +8,13 @@ C:\Users\Ксения Лучкова\source\repos\MulticastServer\obj\Debug\Mult
 C:\Users\Ксения Лучкова\source\repos\MulticastServer\obj\Debug\MulticastServer.pdb
 C:\Users\Ксения Лучкова\source\repos\MulticastServer\obj\Debug\MulticastServer.csprojAssemblyReference.cache
 C:\Users\Ксения Лучкова\source\repos\MulticastServer\obj\Debug\MulticastServer.Form1.resources
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\bin\Debug\MulticastServer.exe.config
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\bin\Debug\MulticastServer.exe
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\bin\Debug\MulticastServer.pdb
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\obj\Debug\MulticastServer.csprojAssemblyReference.cache
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\obj\Debug\MulticastServer.Form1.resources
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\obj\Debug\MulticastServer.Properties.Resources.resources
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\obj\Debug\MulticastServer.csproj.GenerateResource.cache
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\obj\Debug\MulticastServer.csproj.CoreCompileInputs.cache
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\obj\Debug\MulticastServer.exe
+C:\Users\Ксения Лучкова\OneDrive\Документы\6 семестр\Сети ЭВМ\Курсовая\MulticastServer\obj\Debug\MulticastServer.pdb
