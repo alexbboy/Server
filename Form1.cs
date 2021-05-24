@@ -41,7 +41,7 @@ namespace MulticastServer
             try
             {
                 socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership, new MulticastOption(ip));
-                socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.MulticastTimeToLive, 5);
+                socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.MulticastTimeToLive, 50);
             }
             catch (SocketException)
             {
@@ -100,19 +100,11 @@ namespace MulticastServer
                 MessageBox.Show("Данный файл не доступен по соображениям безопасности", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            try
-            {
-                if (path.Substring(path.Length - 4) != ".txt")
-                {
-                    MessageBox.Show("Программа предназначена для передачи текстовых файлов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            catch (Exception)
+            if (Path.GetExtension(path) != ".txt")
             {
                 MessageBox.Show("Программа предназначена для передачи текстовых файлов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                 return;
+             }
             FileStream fstream;
             try
             {
@@ -128,10 +120,9 @@ namespace MulticastServer
                 MessageBox.Show("Указанного файла не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            long size = file.Length;
-            byte[] data = new byte[size];
-            byte[] name = new byte[255];
             string filename = Path.GetFileName(path);
+            byte[] data = new byte[file.Length];
+            byte[] name = new byte[filename.Length];
             fstream.Read(data, 0, data.Length);
             fstream.Close();
             name = Encoding.Default.GetBytes(filename);
